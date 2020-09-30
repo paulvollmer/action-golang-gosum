@@ -2,10 +2,17 @@ name: 'Golang go.sum'
 description: 'Check if the go.mod and go.sum match the source code'
 author: 'paulvollmer'
 branding:
-  icon: 'git-pull-request'
-  color: 'blue'
+  icon: "check-circle"
+  color: "yellow"
 runs:
   using: 'composite'
   steps:
-    - run: 'rm -f go.sum && go mod tidy'
+    - run: |
+        rm -f go.sum
+        go mod tidy
+        S=$(git status --porcelain=v1 2>/dev/null)
+        if [ $? -ne 128 ]; then
+          echo "::error file=go.sum::go.mod and go.sum does not match the source code."
+          exit 1
+        fi
       shell: bash
