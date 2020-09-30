@@ -1,0 +1,11 @@
+name: 'Golang go.sum'
+description: 'Check if the go.mod and go.sum match the source code'
+author: 'paulvollmer'
+branding:
+  icon: 'git-pull-request'
+  color: 'blue'
+runs:
+  using: 'composite'
+  steps:
+    - run: 'rm -f go.sum && go mod tidy'
+      shell: bash
