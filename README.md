@@ -2,9 +2,10 @@
 
 Check if the go.mod and go.sum match the source code by running `go mod tidy` and send a Pull Request :rocket:
 
-## Installation
+## Usage
 
-Create a workflow yaml file (eg: `.github/workflows/go-mod-tidy.yml` see [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file))
+Create a workflow yaml file `.github/workflows/go-mod-tidy.yml` in your repository with the following configuration.
+Here you can learn more about [creating a workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
 ```yaml
 name: 'go-mod-tidy'
@@ -54,3 +55,7 @@ Overwrite the default pull request base branch. Default is the `master` branch.
 
 ### `LET_FAIL`
 Set to `yes` to not send a pull request and exit with `1`
+
+## License
+
+`action-golang-gosum` is licensed under a [MIT License](LICENSE).
